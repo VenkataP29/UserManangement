@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Admin Login</title>
+</head>
+<body>
+<div class="container" align=center>
+<form th:action="@{/accessAdmin}" th:object="${admin}" method="post" style="max-width: 400px; margin: 0 auto;">
+    <h2 align="center">Admin Login</h2>
+             
+     <input type="text" th:field="*{email}" placeholder="Enter email" class="form-control col-4 mb-4"></input>
+	<br>
+	<br>
+	<input type="text" th:field="*{password}" placeholder="Enter password" class="form-control col-4 mb-4"></input>
+	<br>
+	<br>
+	<input type="hidden" th:field="*{Id}"></input>
+	<button class="btn btn-primary" type="submit">Login</button>
+	
+	<button class="btn btn-primary" type="Cancel">Cancel</button>
+</form>
+</div>
+</body>
+</html>

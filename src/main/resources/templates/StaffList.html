@@ -1,0 +1,43 @@
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<title>Admin-Users List</title>
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		
+		<br>
+		<div align="right">
+		
+		 <form th:action="@{/adminLogout}" method="post">
+            <input type="submit" value="Logout"/>
+        </form>  </div>  
+		<hr></hr>
+		
+		<br>
+		<table class="table table-bordered">
+			<thead> 
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Email</th>
+				<th>Modify</th>
+			</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${staff} ">
+					<td th:text="${user.name}"></td>
+					<td th:text="${user.email}"></td>
+					<td th:text="${user.age}"></td>
+				<td>	
+				<a th:href="@{/showUpdatePage(email = ${user.email})}" class="btn btn-info">Update</a>
+				<a th:href="@{/showDeleteStaff(Id = ${user.Id})}" class="btn btn-danger">Delete</a>
+				</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

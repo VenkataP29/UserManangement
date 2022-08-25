@@ -1,0 +1,28 @@
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<title>Add User Form</title>
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h2>Add Admin Record</h2>
+		<hr></hr>
+		<form th:action="@{/createStaff}" th:object="${admin}" method="POST">
+		
+		<input type="text" th:field="*{name}" placeholder="Enter password" class="form-control col-4 mb-4"></input>
+		<input type="text" th:field="*{email}" placeholder="Enter email" class="form-control col-4 mb-4"></input>
+		<input type="text" th:field="*{password}" placeholder="Enter Role" class="form-control col-4 mb-4"></input>
+		<input type="text" th:field="*{age}" placeholder="Enter Role" class="form-control col-4 mb-4"></input>
+		<input type="hidden" th:field="*{Id}"></input>
+		<button class="btn btn-primary" type="Submit">Save</button>
+		<button class="btn btn-primary" type="Cancel">Cancel</button>
+		
+		
+		</form>
+		<hr></hr>
+		<a th:href="@{/user/getUsers}">Back to user List</a>
+	</div>
+</body>
+</html>
