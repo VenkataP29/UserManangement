@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Add User Record</h2>
+		<h2>Update User Record</h2>
 		<hr></hr>
 		<form th:action="@{/saveStaff}" th:object="${staff}" method="POST">
 		
@@ -18,12 +18,10 @@
 		
 		<input type="hidden" th:field="*{Id}"></input>
 		<button class="btn btn-primary" type="Submit">Save</button>
-		<button class="btn btn-primary" type="Cancel">Cancel</button>
 		
 		
 		</form>
 		<hr></hr>
-		<a th:href="@{/user/getUsers}">Back to user List</a>
 	</div>
 </body>
 </html>

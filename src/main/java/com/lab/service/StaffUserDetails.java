@@ -10,31 +10,32 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import com.lab.entity.Staff;
 import com.lab.entity.User;
 
 public class StaffUserDetails implements UserDetails {
 	
-	private User user;
+	private Staff staff;
 	
-	public StaffUserDetails(User user) {
-		this.user = user;
+	public StaffUserDetails(Staff staff) {
+		this.staff = staff;
 	}
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
-		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
-		return authorities;
+	//	List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+	//	authorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
+		return null;
 	}
 
 	@Override
 	public String getPassword() {
-		return user.getPassword();
+		return staff.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		return user.getEmail();
+		return staff.getEmail();
 	}
 
 	@Override

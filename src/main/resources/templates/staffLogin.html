@@ -4,8 +4,7 @@
 <title>User Login</title>
 </head>
 <body>
-    
-     
+
     <div class="container" align="center">
 
 	<h2>Staff Login - Welcome</h2>
@@ -21,7 +20,7 @@
 		</form>
 		<br><br>
 		<h5>OR</h5>
-		<form th:action="@{/signon}" th:object="${staff}" method="get">
+		<form th:action="@{/signon}" th:object="${staff}" method="POST">
 		<button class="btn btn-success" type="submit">Register Now</button>
 		
 </form>

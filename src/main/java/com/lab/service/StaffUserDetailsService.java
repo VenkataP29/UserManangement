@@ -14,19 +14,22 @@ import com.lab.entity.User;
 import com.lab.repository.StaffRepository;
 import com.lab.repository.UserRepository;
 
-@Service
+
 public class StaffUserDetailsService implements UserDetailsService{
 
 	@Autowired
-	private UserRepository userRepo;
+	private StaffRepository staffRepo;
+	
+	@Autowired
+	private StaffService staffService;
 	
 	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		User user = userRepo.findByEmail(email);
-		if(user == null) {
+	public StaffUserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		Staff staff = staffRepo.findByEmail(email);
+		if(staff == null) {
 			throw new UsernameNotFoundException("Email is not found");
 		}
-		return new StaffUserDetails(user);
+		return new StaffUserDetails(staff);
 		
 	}
 	

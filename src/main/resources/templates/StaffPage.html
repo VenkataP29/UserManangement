@@ -25,8 +25,8 @@
 					<td th:text="${user.email}"></td>
 					<td th:text="${user.age}"></td>
 					<td>
-						<a th:href="@{/showUpdatePage(email = ${user.email})}" class="btn btn-info">Update</a>
-						<a th:href="@{/showDeleteStaff(email = ${user.email})}" class="btn btn-danger ml-2">Delete</a>
+						<a th:href="@{/saveUpdateStaff(email = ${user.email})}" class="btn btn-info">Update</a>
+					
 					</td>
 				</tr>
 			</tbody>

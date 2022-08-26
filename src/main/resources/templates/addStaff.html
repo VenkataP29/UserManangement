@@ -7,22 +7,21 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Add Admin Record</h2>
+		<h2>Update User Record</h2>
 		<hr></hr>
-		<form th:action="@{/createStaff}" th:object="${admin}" method="POST">
+		<form th:action="@{/saveOneStaff}" th:object="${staff}" method="POST">
 		
-		<input type="text" th:field="*{name}" placeholder="Enter password" class="form-control col-4 mb-4"></input>
-		<input type="text" th:field="*{email}" placeholder="Enter email" class="form-control col-4 mb-4"></input>
-		<input type="text" th:field="*{password}" placeholder="Enter Role" class="form-control col-4 mb-4"></input>
-		<input type="text" th:field="*{age}" placeholder="Enter Role" class="form-control col-4 mb-4"></input>
+		<input type="text" th:field="*{name}" placeholder="Enter your name" class="form-control col-4 mb-4"></input>
+		<input type="text" th:field="*{email}" placeholder="Enter your email" class="form-control col-4 mb-4"></input>
+		<input type="text" th:field="*{age}" placeholder="Enter your age" class="form-control col-4 mb-4"></input>
+		
+		
 		<input type="hidden" th:field="*{Id}"></input>
 		<button class="btn btn-primary" type="Submit">Save</button>
-		<button class="btn btn-primary" type="Cancel">Cancel</button>
 		
 		
 		</form>
 		<hr></hr>
-		<a th:href="@{/user/getUsers}">Back to user List</a>
 	</div>
 </body>
 </html>
