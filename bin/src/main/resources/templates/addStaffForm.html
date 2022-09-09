@@ -9,7 +9,7 @@
 	<div class="container">
 		<h2>Update User Record</h2>
 		<hr></hr>
-		<form th:action="@{/updateStaff}" th:object="${staff}" method="POST">
+		<form th:action="@{/saveStaff}" th:object="${staff}" method="POST">
 		
 		<input type="text" th:field="*{name}" placeholder="Enter your name" class="form-control col-4 mb-4"></input>
 		<input type="text" th:field="*{email}" placeholder="Enter your email" class="form-control col-4 mb-4"></input>

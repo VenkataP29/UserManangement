@@ -18,10 +18,10 @@ public interface StaffRepository extends JpaRepository<Staff, Integer>{
 	public Optional<Staff> findById(Integer id);
 	public Staff save(Staff staff);
 	
-	@Query("SELECT s FROM Staff s WHERE s.name LIKE %?1% "
-            + " OR s.email LIKE %?1% "
-            + " OR s.age LIKE %?1%")
-    public List<Staff> search(String keyword);
+	@Query(value = "SELECT * FROM staff_tbl s WHERE s.name LIKE %:keyword%"
+            + " OR s.email LIKE %:keyword%"
+            + " OR s.age LIKE %:keyword%", nativeQuery=true)
+    public List<Staff> findByKeyword(@Param("keyword") String keyword);
 
 
 	

@@ -83,15 +83,17 @@ public class StaffController {
 		return new RedirectView("/getStaffPage");
 	}
 	
-	@PostMapping("/saveOneStaff")
-	public RedirectView saveSingleStaff(@ModelAttribute Staff staff) {
+	@PostMapping("/updateStaff")
+	public ModelAndView saveSingleStaff(@ModelAttribute Staff staff) {
+		ModelAndView  mav = new ModelAndView("StaffHome");
+		mav.addObject("staff", staff);
 		staffRepo.save(staff);
-		return new RedirectView("/getSingleStaffRecord");
+		return mav;
 	}
 	
 	@GetMapping("/getSingleStaffRecod")
 	public ModelAndView getSingleStaff(@RequestParam String email) {
-		 ModelAndView mav = new ModelAndView("StaffPage");
+		 ModelAndView mav = new ModelAndView("StaffHome");
 		 
 		 Staff staff = staffRepo.findByEmail(email);
 		 System.out.println(staff);
@@ -118,12 +120,13 @@ public class StaffController {
 	}
 	
 	@GetMapping("/saveUpdateStaff")
-	public RedirectView saveUser(@RequestParam String email) {
+	public ModelAndView saveUser(@RequestParam String email) {
 		ModelAndView mav = new ModelAndView("addStaff");
 		Staff staff = staffRepo.findByEmail(email);
 		mav.addObject("staff", staff);
 		staffRepo.save(staff);
-		return new RedirectView("/getSingleStaffRecord");
+		return mav;
+	//	return new RedirectView("/getSingleStaffRecord");
 	}
 	
 	@GetMapping("/deleteStaff")
@@ -145,9 +148,9 @@ public class StaffController {
 	
 	@GetMapping("/search")
 	public ModelAndView searchResult(@Param("keyword") String keyword) {
-		ModelAndView mav = new ModelAndView("StaffList");
-		List<Staff> staffList = staffService.staffDetails(keyword);
-		mav.addObject("staffList", staffList);
+		ModelAndView mav = new ModelAndView("SearchPage");
+		List<Staff> staffList = staffService.getByKeyword(keyword);
+		mav.addObject("staff", staffList);
 		mav.addObject("keyword", keyword);
 		
 		return mav;

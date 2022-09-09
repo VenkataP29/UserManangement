@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.thymeleaf.org">
+
 <head>
-<title>Welcome</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<title>Users List</title>
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-  <div class="container">
-		<h2>User Record</h2>
-		<form th:action="@{/adminLogout}" method="post" align="right">
-            <input type="submit" value="Logout"/>
-        </form>    
+	<div class="container">
+		<h2>User Created Successfully</h2>
 		<hr></hr>
 		<br>
 		<table class="table table-bordered">
 			<thead> 
 			<tr>
 				<th>Name</th>
-				<th>Age</th>
 				<th>Email</th>
+				<th>Age</th>
 				<th>Actions</th>
 			</tr>
 			</thead>
@@ -29,6 +26,7 @@
 					<td th:text="${user.age}"></td>
 					<td>
 						<a th:href="@{/saveUpdateStaff(email = ${user.email})}" class="btn btn-info">Update</a>
+					
 					</td>
 				</tr>
 			</tbody>

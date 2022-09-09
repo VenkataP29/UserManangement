@@ -32,18 +32,18 @@ public class AdminSecurityConfig {
         return NoOpPasswordEncoder.getInstance();
     }
  
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider1() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService());
-        authProvider.setPasswordEncoder(passwordEncoder());
- 
-        return authProvider;
-    }
+//    @Bean
+//    public DaoAuthenticationProvider authenticationProvider1() {
+//        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+//        authProvider.setUserDetailsService(userDetailsService());
+//        authProvider.setPasswordEncoder(passwordEncoder());
+// 
+//        return authProvider;
+//    }
  
     @Bean
     public SecurityFilterChain filterChain1(HttpSecurity http) throws Exception {
-        http.authenticationProvider(authenticationProvider1());
+    //    http.authenticationProvider(authenticationProvider1());
  
         http.authorizeRequests().antMatchers("/").permitAll();
  

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User Login</title>
+</head>
+<body>
+
+    <div class="container" align="center">
+
+	<h2>Staff Login - Welcome</h2>
+		<hr></hr>
+		
+		<form th:action="@{/accessStaff}" th:object="${staff}">
+		
+		<input type="text" th:field="*{email}" placeholder="Enter your email" class="form-control col-4 mb-4"></input>
+		<br><br>
+		<input type="text" th:field="*{password}" placeholder="Enter password" class="form-control col-4 mb-4"></input>
+		<br><br>
+		<button class="btn btn-primary" type="submit">Login</button>
+		</form>
+		<br><br>
+		<h5>OR</h5>
+		<form th:action="@{/signon}" th:object="${staff}" method="POST">
+		<button class="btn btn-success" type="submit">Register Now</button>
+		
+</form>
+</body>
+</html>

@@ -10,6 +10,8 @@ public interface StaffService {
 
 	Page<Staff> findPage(int pageNo, int pageSize);
 	
-	public List<Staff> staffDetails(String keyword);
+	public List<Staff> getByKeyword(String keyword);
+	
+	//public List<Staff> staffDetails(String keyword);
 	
 }

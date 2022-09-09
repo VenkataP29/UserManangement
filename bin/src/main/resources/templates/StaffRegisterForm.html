@@ -7,21 +7,20 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Update User Record</h2>
+		<h2>Staff Register</h2>
 		<hr></hr>
-		<form th:action="@{/updateStaff}" th:object="${staff}" method="POST">
+		<form th:action="@{/createStaff}" th:object="${staff}" method="POST">
 		
 		<input type="text" th:field="*{name}" placeholder="Enter your name" class="form-control col-4 mb-4"></input>
 		<input type="text" th:field="*{email}" placeholder="Enter your email" class="form-control col-4 mb-4"></input>
+		<input type="text" th:field="*{password}" placeholder="Enter password" class="form-control col-4 mb-4"></input>
 		<input type="text" th:field="*{age}" placeholder="Enter your age" class="form-control col-4 mb-4"></input>
-		
 		
 		<input type="hidden" th:field="*{Id}"></input>
 		<button class="btn btn-primary" type="Submit">Save</button>
 		
 		
 		</form>
-		<hr></hr>
 	</div>
 </body>
 </html>

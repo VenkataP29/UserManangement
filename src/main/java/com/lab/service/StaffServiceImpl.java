@@ -26,13 +26,19 @@ public class StaffServiceImpl implements StaffService{
 		return staffRepo.findAll(pageable);
 	}
 
-	@Override
-	public List<Staff> staffDetails(String keyword) {
+//	@Override
+//	public List<Staff> staffDetails(String keyword) {
+//
+//		if(keyword != null) {
+//			return staffRepo.search(keyword);
+//		}
+//		return staffRepo.findAll();
+//	}
 
-		if(keyword != null) {
-			return staffRepo.search(keyword);
-		}
-		return staffRepo.findAll();
+	@Override
+	public List<Staff> getByKeyword(String keyword) {
+		
+		return staffRepo.findByKeyword(keyword);
 	}
 
 }
